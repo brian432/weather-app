@@ -3,7 +3,7 @@ import Ciudad from './componentes/ciudad'
 import './componentes/estilos/estilo.css'
 import { useState } from 'react'
 
-const api = 'http://api.openweathermap.org/data/2.5/weather?q=';
+const api = 'https://api.openweathermap.org/data/2.5/weather?q=';
 const apiKey = '&units=metric&appid=62714afecbb76f07b34f747da00a6e42';
 
 function App() {
