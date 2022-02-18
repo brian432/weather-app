@@ -1,0 +1,367 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.minima {
+  color: #08418b;
+}
+
+.maxima {
+  color: #bd261b;
+}
+
+h3 {
+  font-size: clamp(1rem, 5vh, 3rem);
+}
+
+h2 {
+  font-size: 8rem;
+  font-weight: 300;
+}
+
+.App {
+  width: 100vw;
+  height: 100vh;
+  background: url(/public/imagenes/fondo.jpg);
+  overflow: hidden;
+  font-family: "Roboto", sans-serif;
+  color: white;
+  text-shadow: 1px 1px 2px black;
+}
+
+#inicio {
+  width: 100vw;
+  height: 100vh;
+  padding: 5px;
+}
+
+#inicio form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 auto;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  min-width: 300px;
+  max-width: 600px;
+  height: 300px;
+  gap: 10px;
+  min-width: 300px;
+  height: 300px;
+  margin-top: 2.5rem;
+}
+
+#inicio form h1 {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+#inicio form input,
+#inicio form select,
+#inicio form button {
+  height: 40px;
+  padding: 5px;
+  border: none;
+  outline: none;
+}
+
+#inicio form button {
+  background: white;
+  cursor: pointer;
+}
+
+#inicio form button:hover {
+  background: #eeeeee;
+}
+
+#inicio .ciudades {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 1rem;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  min-width: 300px;
+  max-width: 600px;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+#inicio .ciudades div {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 10px;
+  background: white;
+  color: black;
+  text-shadow: none;
+}
+
+#weather {
+  width: 100vw;
+  height: 100vh;
+  background-position: center;
+  background-size: cover;
+  padding: 3rem 5rem;
+  font-weight: 500;
+}
+
+#weather .atras {
+  position: absolute;
+  cursor: pointer;
+  top: 40px;
+  left: 80px;
+  background: none;
+  outline: none;
+  border: none;
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  text-shadow: 1px 1px 2px black;
+}
+
+.arriba {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 65%;
+}
+
+.arriba .hoy {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.arriba .detalles {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 10px;
+}
+
+.arriba .grados {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.arriba .grados p {
+  font-size: 2rem;
+  position: relative;
+  right: 15px;
+}
+
+.abajo .detalles {
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 10px;
+  margin-top: 1rem;
+}
+
+.abajo .lista {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1rem;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.329);
+  margin-bottom: 2rem;
+}
+
+.abajo .lista .ahora {
+  display: none;
+}
+
+.abajo .lista span {
+  border-bottom: 3px solid;
+}
+
+.abajo .cuadros-div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+}
+
+.abajo .cuadros-div .cuadros {
+  text-align: center;
+}
+
+.lds-dual-ring {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+}
+
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 6px solid #fff;
+  border-color: white transparent white transparent;
+  -webkit-animation: lds-dual-ring 1.2s linear infinite;
+          animation: lds-dual-ring 1.2s linear infinite;
+}
+
+@-webkit-keyframes lds-dual-ring {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes lds-dual-ring {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+.img-carga {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+}
+
+@media (max-width: 768px) {
+  #weather {
+    padding: 3rem 3rem;
+  }
+  #weather .atras {
+    top: 40px;
+    left: 47px;
+  }
+}
+
+@media (max-width: 600px) {
+  #weather {
+    padding: 1rem 1rem;
+  }
+  #weather .atras {
+    top: 40px;
+    left: 15px;
+  }
+  .arriba {
+    height: 40%;
+  }
+  .arriba .hoy {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    text-align: center;
+  }
+  .arriba .hoy .ahora {
+    display: none;
+  }
+  .arriba .hoy .grados {
+    position: relative;
+    left: 15px;
+  }
+  .arriba .hoy .grados h2 {
+    font-size: 5rem;
+  }
+  .arriba .detalles {
+    display: none !important;
+    line-height: 2rem;
+    position: absolute;
+    bottom: 0;
+  }
+  .abajo .lista {
+    margin-bottom: 0;
+    color: #cacaca;
+  }
+  .abajo .lista span {
+    display: block !important;
+    border-bottom: none;
+  }
+  .abajo .lista .activo {
+    border-bottom: 3px solid;
+    color: white;
+  }
+  .abajo .cuadros-div {
+    display: none;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .abajo .cuadros-div .cuadros {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .abajo .cuadros-div .cuadros .dia {
+    width: 30px;
+  }
+  .visible {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+  }
+}
+/*# sourceMappingURL=estilo.css.map */

@@ -1,0 +1,281 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+//clases globales
+.minima {
+    color: rgb(8, 65, 139);
+}
+.maxima {
+    color: rgb(189, 38, 27);
+}
+
+h3 {
+    font-size: clamp(1rem, 5vh, 3rem);
+}
+h2 {
+    font-size: 8rem;
+    font-weight: 300;
+}
+
+@mixin width-heigth {
+    width: 100vw;
+    height: 100vh;
+}
+
+//App
+.App {
+    @include width-heigth;
+    background: url(/public/imagenes/fondo.jpg);
+    overflow: hidden;
+    font-family: "Roboto", sans-serif;
+    color: white;
+    text-shadow: 1px 1px 2px black;
+}
+
+//input
+#inicio {
+    @include width-heigth;
+    padding: 5px;
+    form {
+        display: flex;
+        margin: 0 auto;
+        flex-direction: column;
+        min-width: 300px;
+        max-width: 600px;
+        height: 300px;
+        gap: 10px;
+        min-width: 300px;
+        height: 300px;
+        margin-top: 2.5rem;
+        h1 {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        input,
+        select,
+        button {
+            height: 40px;
+            padding: 5px;
+            border: none;
+            outline: none;
+        }
+        button {
+            background: white;
+            cursor: pointer;
+            &:hover {
+                background: rgb(238, 238, 238);
+            }
+        }
+    }
+    .ciudades {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        flex-wrap: wrap;
+        min-width: 300px;
+        max-width: 600px;
+        margin: 0 auto;
+        cursor: pointer;
+        div {
+            width: fit-content;
+            padding: 10px;
+            background: white;
+            color: black;
+            text-shadow: none;
+        }
+    }
+}
+
+//weather
+#weather {
+    @include width-heigth;
+    background-position: center;
+    background-size: cover;
+    padding: 3rem 5rem;
+    font-weight: 500;
+    .atras {
+        position: absolute;
+        cursor: pointer;
+        top: 40px;
+        left: 80px;
+        background: none;
+        outline: none;
+        border: none;
+        color: white;
+        font-weight: 600;
+        font-size: 1rem;
+        text-shadow: 1px 1px 2px black;
+    }
+}
+
+.arriba {
+    display: flex;
+    flex-direction: column;
+    height: 65%;
+    .hoy {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .detalles {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .grados {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        p {
+            font-size: 2rem;
+            position: relative;
+            right: 15px;
+        }
+    }
+}
+
+.abajo {
+    .detalles {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 1rem;
+    }
+    .lista {
+        display: flex;
+        gap: 1rem;
+        padding: 10px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.329);
+        margin-bottom: 2rem;
+        .ahora {
+            display: none;
+        }
+        span {
+            border-bottom: 3px solid;
+        }
+    }
+    .cuadros-div {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        .cuadros {
+            text-align: center;
+        }
+    }
+}
+
+//loader
+
+.lds-dual-ring {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    &:after {
+        content: " ";
+        display: block;
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        border: 6px solid #fff;
+        border-color: rgb(255, 255, 255) transparent rgb(255, 255, 255) transparent;
+        animation: lds-dual-ring 1.2s linear infinite;
+    }
+    @keyframes lds-dual-ring {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+}
+
+.img-carga {
+    align-self: center;
+    justify-self: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+}
+
+@media (max-width: 768px) {
+    #weather {
+        padding: 3rem 3rem;
+        .atras{
+            top: 40px;
+            left: 47px;
+        }
+    }
+    
+}
+
+@media (max-width: 600px) {
+    #weather {
+        padding: 1rem 1rem;
+        .atras{
+            top: 40px;
+            left: 15px;
+        }
+    }
+    .arriba {
+        height: 40%;
+        .hoy {
+            flex-direction: column;
+            text-align: center;
+            .ahora {
+                display: none;
+            }
+            .grados {
+                position: relative;
+                left: 15px;
+                h2 {
+                    font-size: 5rem;
+                }
+            }
+        }
+        .detalles {
+            display: none !important;
+            line-height: 2rem;
+            position: absolute;
+            bottom: 0;
+        }
+    }
+    .abajo {
+        .lista {
+            margin-bottom: 0;
+            color: rgb(202, 202, 202);
+            span {
+                display: block !important;
+                border-bottom: none;
+            }
+            .activo {
+                border-bottom: 3px solid;
+                color: white;
+            }
+        }
+        .cuadros-div {
+            display: none;
+            flex-direction: column;
+            .cuadros {
+                .dia {
+                    width: 30px;
+                }
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+        }
+    }
+    .visible {
+        display: flex !important;
+    }
+}

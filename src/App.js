@@ -1,37 +1,36 @@
-import Form from './componentes/form'
-import Ciudad from './componentes/ciudad'
-import './componentes/estilos/estilo.css'
-import { useState } from 'react'
+import { useEffect, useState } from "react";
+import Input from "./componentes/input/input";
+import Weather from "./componentes/weather/weather";
+import './estilos/estilo.css'
 
-const api = 'https://api.openweathermap.org/data/2.5/weather?q=';
-const apiKey = '&units=metric&appid=62714afecbb76f07b34f747da00a6e42';
+const API_KEY = "&appid=62714afecbb76f07b34f747da00a6e42";
+const API_CLIMA = "https://api.openweathermap.org/data/2.5/onecall?exclude=hourly,minutely&units=metric";
 
 function App() {
-  const [clima, setClima] = useState("");
-  const [fondo, setFondo] = useState("");
-  const [ciudad, setCiudad] = useState("");
+  const [latlong, setLatlong] = useState([]);
+  const [clima, setClima] = useState([]);
 
-  const mist = ["Mist", "Smoke", "Haze", "Dust", "Fog", "Sand", "Ash", "Squall", "Tornado"];
-  const json = async (ciudad) => {
-    try {
-      let peticion = await fetch(`${api}${ciudad}${apiKey}`);
-      let resultado = await peticion.json();
-      setCiudad(resultado.name);
-      console.log(resultado, resultado.name, resultado.weather[0].icon)
-      setClima(resultado);
-      mist.includes(resultado.weather[0].main) ? setFondo("Mist") : setFondo(resultado.weather[0].main);
-    } catch {
-      alert("ciudad no encontrada");
-    }
-  };
+  useEffect(() => {
+    latlong.length > 0 && json(latlong[0], latlong[1]);
+  }, [latlong]);
+
+  //Peticion a la api de openweathermap con la latitud y la longitud ingresada en el buscador de la aplicacion
+  const json = async (latitud, longitud) => {
+    let peticion = await fetch(`${API_CLIMA}&lat=${latitud}&lon=${longitud}${API_KEY}`);
+    let resultado = await peticion.json();
+    setClima(resultado)
+  }; 
 
   return (
-    <div className="App" style={{ backgroundImage: `url('${fondo === "" ? "fondo" : fondo}.jpg')` }}>
-      <h1 id='titulo'>Pronóstico del tiempo</h1>
-      {clima === "" ? <Form json={json} /> : <Ciudad clima={clima} ciudad={ciudad} setFondo={setFondo} setClima={setClima} />}
+    <div className="App">
+      {
+        !latlong.length > 0 ?
+          <Input API_KEY={API_KEY} setLatlong={setLatlong} /> :
+          <Weather clima={clima} latlong={latlong} setLatlong={setLatlong}/>
+      }
+
     </div>
   );
 }
 
 export default App;
-
