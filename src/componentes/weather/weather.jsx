@@ -65,7 +65,7 @@ const Weather = ({ clima, latlong, setLatlong }) => {
                             <h3>{latlong[2]}</h3>
                             <p className="ahora">HOY, {hora_retorno(hora)} hrs.</p>
                             <div className="div-img">
-                                <img src={`https://openweathermap.org/img/wn/${imagen[0].icon}.png`} />
+                                <img src={`http://openweathermap.org/img/wn/${imagen[0].icon}.png`} />
                             </div>
                         </div>
                         <div className="grados">
@@ -82,7 +82,7 @@ const Weather = ({ clima, latlong, setLatlong }) => {
                             clima.daily.slice(1, 8).map((dia, indice) =>
                                 <div key={indice} className="cuadros">
                                     <p className="dia">{diaEnLetras(dia.dt)}</p>
-                                    <img src={`https://openweathermap.org/img/wn/${dia.weather[0].icon}.png`} />
+                                    <img src={`http://openweathermap.org/img/wn/${dia.weather[0].icon}.png`} />
                                     <p>{parseInt(dia.temp.day)}º</p>
                                     <p><span className="maxima">{parseInt(dia.temp.max)}º</span>/<span className="minima">{parseInt(dia.temp.min)}º</span></p>
                                 </div>
