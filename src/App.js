@@ -4,7 +4,7 @@ import Weather from "./componentes/weather/weather";
 import './estilos/estilo.css'
 
 const API_KEY = "&appid=62714afecbb76f07b34f747da00a6e42";
-const API_CLIMA = "https://api.openweathermap.org/data/2.5/onecall?exclude=hourly,minutely&units=metric";
+const API_CLIMA = "http://api.openweathermap.org/data/2.5/onecall?exclude=hourly,minutely&units=metric";
 
 function App() {
   const [latlong, setLatlong] = useState([]);
