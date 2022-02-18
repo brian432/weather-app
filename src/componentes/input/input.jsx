@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const API_GEO = "http://api.openweathermap.org/geo/1.0/direct?limit=0&lang=sp&q=";
+const API_GEO = "https://api.openweathermap.org/geo/1.0/direct?limit=0&lang=sp&q=";
 const Input = ({ API_KEY, setLatlong }) => {
     const [paises, setPaises] = useState([]);
     const [ciudades, setCiudades] = useState([]);
