@@ -25,7 +25,6 @@ h2 {
 
 .App {
   width: 100vw;
-  height: 100vh;
   background: url(/public/imagenes/fondo.jpg);
   overflow: hidden;
   font-family: "Roboto", sans-serif;
@@ -34,8 +33,6 @@ h2 {
 }
 
 #inicio {
-  width: 100vw;
-  height: 100vh;
   padding: 5px;
 }
 
@@ -108,7 +105,6 @@ h2 {
 
 #weather {
   width: 100vw;
-  height: 100vh;
   background-position: center;
   background-size: cover;
   padding: 3rem 5rem;

@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import Input from "./componentes/input/input";
-import Weather from "./componentes/weather/weather";
+import Input from './componentes/input'
+import Weather from './componentes/weather';
 import './estilos/estilo.css'
 
 const API_KEY = "&appid=62714afecbb76f07b34f747da00a6e42";
-const API_CLIMA = "http://api.openweathermap.org/data/2.5/onecall?exclude=hourly,minutely&units=metric";
+const API_CLIMA = "https://api.openweathermap.org/data/2.5/onecall?exclude=hourly,minutely&units=metric";
 
 function App() {
   const [latlong, setLatlong] = useState([]);
@@ -22,7 +22,7 @@ function App() {
   }; 
 
   return (
-    <div className="App">
+    <div className="App" style={!latlong.length>0?{minHeight:'100vh'}:{height:'100vh'}}>
       {
         !latlong.length > 0 ?
           <Input API_KEY={API_KEY} setLatlong={setLatlong} /> :

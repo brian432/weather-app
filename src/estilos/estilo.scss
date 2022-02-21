@@ -24,7 +24,6 @@ h2 {
 
 @mixin width-heigth {
     width: 100vw;
-    height: 100vh;
 }
 
 //App
@@ -39,7 +38,6 @@ h2 {
 
 //input
 #inicio {
-    @include width-heigth;
     padding: 5px;
     form {
         display: flex;
