@@ -34,7 +34,6 @@ h2 {
 
 #inicio {
   padding: 5px;
-  height: 100vh;
 }
 
 #inicio form {
@@ -106,6 +105,7 @@ h2 {
 
 #weather {
   width: 100vw;
+  height: 100vh;
   background-position: center;
   background-size: cover;
   padding: 3rem 5rem;

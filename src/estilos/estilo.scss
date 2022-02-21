@@ -39,7 +39,6 @@ h2 {
 //input
 #inicio {
     padding: 5px;
-    height: 100vh;
     form {
         display: flex;
         margin: 0 auto;
@@ -93,6 +92,7 @@ h2 {
 //weather
 #weather {
     @include width-heigth;
+    height: 100vh;
     background-position: center;
     background-size: cover;
     padding: 3rem 5rem;
